@@ -5,12 +5,22 @@ import dagger.Module
 import dagger.Provides
 
 @Module
-abstract class NotificationModule {
-    /*@Provides
-    fun sendMessage(): NotificationService {
-         return MessageService();
-    }*/
+ class NotificationModule {
 
-    @Binds
-    abstract fun sendNotification(emailService: EmailService): NotificationService
+   /* @Binds
+    abstract fun sendNotification(emailService: EmailService): NotificationService*/
+
+    @MessageAnnotation
+    @Provides
+    fun sendMessage(): NotificationService {
+        return MessageService();
+    }
+
+    @EmailAnnotation
+    @Provides
+    fun sendEmail(): NotificationService {
+        return EmailService();
+    }
+
+
 }
