@@ -5,7 +5,7 @@ import dagger.Module
 import dagger.Provides
 
 @Module
- class NotificationModule {
+ class NotificationModule(private val retryCount: Int) {
 
    /* @Binds
     abstract fun sendNotification(emailService: EmailService): NotificationService*/
@@ -19,7 +19,7 @@ import dagger.Provides
     @EmailAnnotation
     @Provides
     fun sendEmail(): NotificationService {
-        return EmailService();
+        return EmailService(retryCount);
     }
 
 

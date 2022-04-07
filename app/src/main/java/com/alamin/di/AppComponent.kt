@@ -7,4 +7,7 @@ interface AppComponent {
    fun getUserRegistrationService():UserRegistrationService
 
    fun inject(mainActivity: MainActivity)
+
+
+
 }

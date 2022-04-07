@@ -4,7 +4,7 @@ import javax.inject.Inject
 
 class UserRegistrationService @Inject constructor(
     val userRepository: UserRepository,
-    @MessageAnnotation
+    @EmailAnnotation
     val notificationService: NotificationService
 ) {
 
