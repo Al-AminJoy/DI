@@ -11,9 +11,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val component = DaggerAppComponent
-            .builder()
-            .notificationModule(NotificationModule(3))
-            .build()
+            .factory()
+            .create(3)
         component.inject(this);
         userRegistrationService.registerUser("user@gmail.com","1234")
     }

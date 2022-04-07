@@ -5,21 +5,21 @@ import dagger.Module
 import dagger.Provides
 
 @Module
- class NotificationModule(private val retryCount: Int) {
+ class NotificationModule() {
 
    /* @Binds
     abstract fun sendNotification(emailService: EmailService): NotificationService*/
 
     @MessageAnnotation
     @Provides
-    fun sendMessage(): NotificationService {
-        return MessageService();
+    fun sendMessage(retryCount: Int): NotificationService {
+        return MessageService(retryCount);
     }
 
     @EmailAnnotation
     @Provides
     fun sendEmail(): NotificationService {
-        return EmailService(retryCount);
+        return EmailService();
     }
 
 
