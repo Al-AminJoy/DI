@@ -18,8 +18,8 @@ import dagger.Provides
 
     @EmailAnnotation
     @Provides
-    fun sendEmail(): NotificationService {
-        return EmailService();
+    fun sendEmail(emailService: EmailService): NotificationService {
+        return emailService;
     }
 
 

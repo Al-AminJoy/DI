@@ -3,7 +3,7 @@ package com.alamin.di
 import dagger.BindsInstance
 import dagger.Component
 
-@Component(modules = [NotificationModule::class])
+@Component(modules = [NotificationModule::class, AnalyticsModule::class])
 interface AppComponent {
    fun getUserRegistrationService():UserRegistrationService
 
