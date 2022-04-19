@@ -10,10 +10,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val component = DaggerAppComponent
+        val component = (application as UserApplication).appComponent
+        val userRegistrationComponent = DaggerUserRegistrationComponent
             .factory()
-            .create(3)
-        component.inject(this);
+            .create(3,component)
+        userRegistrationComponent.inject(this);
         userRegistrationService.registerUser("user@gmail.com","1234")
     }
 }

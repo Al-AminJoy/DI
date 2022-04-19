@@ -10,6 +10,7 @@ import dagger.Provides
    /* @Binds
     abstract fun sendNotification(emailService: EmailService): NotificationService*/
 
+    @ApplicationScope
     @MessageAnnotation
     @Provides
     fun sendMessage(retryCount: Int): NotificationService {
