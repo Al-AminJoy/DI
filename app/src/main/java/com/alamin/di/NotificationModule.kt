@@ -13,8 +13,8 @@ import dagger.Provides
     @ApplicationScope
     @MessageAnnotation
     @Provides
-    fun sendMessage(): NotificationService {
-        return MessageService(3);
+    fun sendMessage(count: Double): NotificationService {
+        return MessageService(count);
     }
 
     @EmailAnnotation
